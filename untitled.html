@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			font-size:12px;
+			line-height: 1.7;
+		}
+		li{
+			list-style: none;
+		}
+		#content{
+			width:800px;
+			margin:0 auto;
+			padding:20px;
+		}
+		#content h1 {
+            color: #0088bb;
+        }
+		#content .item{
+			margin-bottom: 20px;
+			padding:20px;
+			border: 1px dotted #0088bb;
+		}
+		#content .item h2{
+			font-size: 16px;
+			font-weight: bold;
+			border-bottom: 2px solid #0088bb;
+			margin-bottom: 10px;
+		}
+		#content .item li{
+			display: inline;
+			margin-right: 10px;
+		}
+		#content .item li a img{
+			wifth:230px;
+			height:230px;
+			border:none;
+		}
+		#menu{
+			position:fixed;
+			top:100px;
+			left: 50%;
+			margin-left: 410px;
+			width:50px;
+		}
+		#menu ul li a{
+			display: block;
+			font-size: 14px;
+			font-weight: bold;
+			list-style: none;
+			line-height: 50px;
+			width:80px;
+			text-decoration: none;
+			color: #333;
+			text-align: center;
+			margin:5px 0;
+			height:50px;
+		}
+		#menu ul li a:hover,
+		#menu ul li a.current{
+			color: #fff;
+            background: #0088bb;
+		}
+		* html, * html body {
+            background-image: url(about:blank);
+            background-attachment: fixed;
+        }
+
+        * html #menu {
+            position: absolute;
+            bottom: auto;
+            top: expression(100+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
+        }
+	</style>
+</head>
+<body>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(window).scroll(function(){
+			var items=$("#content").find(".item");
+			var menu=$("#menu");
+			var top=$(document).scrollTop();
+			var currentId="";
+			items.each(function(){
+				var m=$(this);
+				if(top>m.offset().top-200){
+					currentId="#"+m.attr("id");
+				}else{
+					return false;
+				}
+			});
+			var currentLink = menu.find(".current");
+		if(currentId&&currentLink.attr("href")!=currentId){
+			currentLink.removeClass("current");
+			menu.find("[href="+currentId+"]").addClass("current");
+		}
+		});
+		
+	});
+</script>
+<div id="menu">
+	<ul>
+		<li><a href="#item1" class="current">1F 男装</a></li>
+		<li><a href="#item2">2F 女装</a></li>
+        <li><a href="#item3">3F 美妆</a></li>
+        <li><a href="#item4">4F 数码</a></li>
+        <li><a href="#item5">5F 母婴</a></li>
+	</ul>
+</div>
+	<div id="content">
+	<h1>购物网</h1>
+		<div id="item1" class="item">
+		<h2>1F 男装</h2>
+			<ul>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="1F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item2" class="item">
+		<h2>2F 女装</h2>
+			<ul>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="2F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item3" class="item">
+		<h2>3F 美装</h2>
+			<ul>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="3F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item4" class="item">
+		<h2>4F 数码</h2>
+			<ul>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+				<li><a href="#"><img src="4F.png" alt=""></a></li>
+			</ul>
+		</div>
+		<div id="item5" class="item">
+		<h2>5F 母婴</h2>
+			<ul>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+				<li><a href="#"><img src="5F.jpg" alt=""></a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
